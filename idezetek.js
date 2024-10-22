@@ -32,13 +32,15 @@ const idezetek = [
 ];
 
 let jelenleg = 0;
+
+
 const kedvenc = [];
 
 function idezetkiir() {
     const idezetszoveg = document.getElementById("idezetszoveg");
     const idezetszerzo = document.getElementById("idezetszerzo");
     idezetszoveg.textContent = idezetek[jelenleg].idezet;
-    idezetszerzo.textContent = `— ${idezetek[jelenleg].szerzo}`;
+    idezetszerzo.textContent = `- ${idezetek[jelenleg].szerzo}`;
     gombfrissit();
 }
 
@@ -46,6 +48,7 @@ function gombfrissit() {
     document.getElementById("elozo").disabled = jelenleg === 0;
     document.getElementById("kovetkezo").disabled = jelenleg === idezetek.length - 1;
 }
+
 
 function kedvenchozzaad() {
     const jelenlegiidezet = idezetek[jelenleg];
@@ -63,6 +66,8 @@ function kedvencfrissit() {
     });
 }
 
+
+
 document.getElementById("elozo").addEventListener("click", () => {
     if (jelenleg > 0) jelenleg--;
     idezetkiir();
@@ -74,5 +79,6 @@ document.getElementById("kovetkezo").addEventListener("click", () => {
 });
 
 document.getElementById("kedvenc").addEventListener("click", kedvenchozzaad);
+
 
 idezetkiir();
